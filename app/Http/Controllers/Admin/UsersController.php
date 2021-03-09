@@ -63,13 +63,13 @@ class UsersController extends Controller
         return redirect(route('users'))->with('success', $mess);
     }
 
-    function showEditForm($id)
+    public function showEditForm($id)
     {
         $user = User::findOrFail($id);
         return view('admin.users-edit')->with('user', $user);
     }
 
-    function updateUser(UpdateUserRequest $request, $id)
+    public function updateUser(UpdateUserRequest $request, $id)
     {
         $this->validate(
             $request,

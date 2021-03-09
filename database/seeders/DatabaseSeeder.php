@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use Database\Seeders\CategorySeeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\PageSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,16 +17,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        User::create([
-            'name' => 'Administrator',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('password'),
-            'phone' => '+4089 542 327',
-            'address' => 'Romania, str Larval nr 35 bl d45',
-            'role' => 'admin'
-
+        $this->call([
+            // UserSeeder::class,
+            // CategorySeeder::class
+            PageSeeder::class
         ]);
-
-        User::factory(100)->create();
     }
 }

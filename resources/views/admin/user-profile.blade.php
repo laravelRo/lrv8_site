@@ -4,7 +4,8 @@
 
 @section('content')
     <h1 class="my-4">
-        Editare profil <span class="text-info">{{ $user->name }} </span>
+        Editare profil <span class="text-info">{{ $user->name }} </span> - cu rol de
+        <span class="text-info">{{ $user->role }}</span>
     </h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control panel</a></li>

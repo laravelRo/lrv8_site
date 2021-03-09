@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Front\PagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,19 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::delete('/user-delete/{id}', [UsersController::class, 'deleteUser'])->name('users.delete');
 });
 
+// ===> routele pentru categorii
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+
+    // afisam categoriile
+    Route::get('categories', [CategoryController::class, 'showCategories'])->name('admin.categories');
+    Route::get('categories/new', [CategoryController::class, 'newCategory'])->name('admin.categories.new');
+    Route::post('categories/new', [CategoryController::class, 'addCategory'])->name('admin.categories.add');
+
+    Route::get('categories/edit/{id}', [CategoryController::class, 'editCategory'])->name('admin.categories.edit');
+    Route::put('categories/edit/{id}', [CategoryController::class, 'updateCategory'])->name('admin.categories.update');
+    Route::delete('categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin.categories.delete');
+});
+
 // <==== routele de administrare ====
 
 // ==== routele pentru utilizatori ====>
@@ -48,6 +63,12 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 });
 
 // <==== routele pentru utilizatori ====
+
+
+// ====>rutele publice ===
+Route::get('/', [PagesController::class, 'homePage'])->name('home');
+Route::get('/category/{category:slug}', [PagesController::class, 'categoryPage'])->name('category');
+
 
 
 require __DIR__ . '/auth.php';

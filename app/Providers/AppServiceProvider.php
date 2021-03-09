@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Lang;
+use App\Models\Category;
+use Illuminate\Support\Facades\View;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -34,5 +36,8 @@ class AppServiceProvider extends ServiceProvider
             // ->action(Lang::get('Reset Password'), url(config('app.url') . route('password.reset', ['token' => $token, 'email' => $notifiable->getEmailForPasswordReset()], false)))
             // ->line('another line');
         });
+
+        $menu_categories = Category::all()->sortBy('title')->where('publish', 1);
+        View::share('menu_categories', $menu_categories);
     }
 }
