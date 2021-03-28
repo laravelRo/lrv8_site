@@ -38,7 +38,9 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{!! $user->hasVerifiedEmail() ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i
+                                <td>{!! $user->hasVerifiedEmail()
+    ? '<i class="fa fa-check" aria-hidden="true"></i>'
+    : '<i
                                         class="fa fa-2x fa-minus-circle text-danger" aria-hidden="true"></i>' !!}
                                 </td>
                                 <td>{{ $user->name }}<br>
@@ -50,7 +52,13 @@
                                         alt="{{ $user->name }}">
                                 </td>
                                 <td>
-                                    {{ $user->role }}
+                                    @if ($user->role == 'author')
+                                        <a href="{{ route('admin.pages', ['author' => $user->id]) }} "
+                                            title="click pentru a vedea paginile de autor">{{ $user->role }} -
+                                            {{ $user->pages->count() }}</a>
+                                    @else
+                                        {{ $user->role }}
+                                    @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('users.editForm', $user->id) }}"
@@ -69,10 +77,10 @@
 
                                     <button class="btn btn-danger btn-circle btn-md"
                                         title="Sterge utilizatorul din baza de date" onclick="
-                                                                              if(confirm('Confirmati stergerea utilizatorului {{ $user->name }}?')){
-                                                                                     document.getElementById('form-delete-{{ $user->id }}').submit();
-                                                                                         }
-                                                                                ">
+                                                                                      if(confirm('Confirmati stergerea utilizatorului {{ $user->name }}?')){
+                                                                                             document.getElementById('form-delete-{{ $user->id }}').submit();
+                                                                                                 }
+                                                                                        ">
                                         <i class="fas fa-2x fa-trash-alt"></i>
                                     </button>
                                 </td>

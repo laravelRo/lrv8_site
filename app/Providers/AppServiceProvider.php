@@ -8,6 +8,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\Lang;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
+use Illuminate\Pagination\Paginator;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -37,7 +38,9 @@ class AppServiceProvider extends ServiceProvider
             // ->line('another line');
         });
 
-        $menu_categories = Category::all()->sortBy('title')->where('publish', 1);
+        $menu_categories = Category::select('title', 'slug')->orderBy('title')->where('publish', 1)->get();
         View::share('menu_categories', $menu_categories);
+
+        Paginator::useBootstrap();
     }
 }

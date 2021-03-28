@@ -140,6 +140,8 @@ class CategoryController extends Controller
             File::delete('images/categories/' . $category->photo);
         }
 
+        $category->pages()->detach();
+
         $category->delete();
         return redirect(route('admin.categories'))->with('success', 'Categoria ' . $category->title . ' a fost stearsa definitiv din baza de date');
     }

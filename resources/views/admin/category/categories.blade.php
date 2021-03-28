@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th>Ord.</th>
-                            <th>Title / slug</th>
+                            <th>Title / Pages</th>
                             <th>Subtitle</th>
                             <th>Views</th>
                             <th class="text-center">Photo</th>
@@ -40,7 +40,12 @@
                         @foreach ($categories as $category)
                             <tr class="{{ $category->publish == 1 ? 'bg-light' : 'bg-warning' }}">
                                 <td>{{ $category->position }}</td>
-                                <td>{{ $category->title }}</td>
+
+                                <td>
+                                    {{ $category->title }}<br>
+                                    <a href="{{ route('admin.pages', ['categs' => $category->id]) }}">pages -
+                                        {{ $category->pages()->count() }}</a>
+                                </td>
                                 <td>{{ $category->subtitle }}</td>
                                 <td>{{ $category->views }}</td>
                                 <td> <img class="user-avatar mx-auto" src="/images/categories/{{ $category->photo }}"
@@ -68,10 +73,10 @@
                                         <button class="btn btn-danger btn-circle btn-md"
                                             title="Sterge categoria din baza de date"
                                             onclick="
-                                                                            if(confirm('Confirmati stergerea categoriei {{ $category->title }}?')){
-                                                                            document.getElementById('form-delete-{{ $category->id }}').submit();
-                                                                                                                                                         }
-                                                                                                                                                ">
+                                                                                    if(confirm('Confirmati stergerea categoriei {{ $category->title }}?')){
+                                                                                    document.getElementById('form-delete-{{ $category->id }}').submit();
+                                                                                                                                                                 }
+                                                                                                                                                        ">
                                             <i class="fas fa-2x fa-trash-alt"></i>
                                         </button>
                                     @endcan
@@ -82,7 +87,7 @@
                     <tfoot>
                         <tr>
                             <th>Ord.</th>
-                            <th>Title / slug</th>
+                            <th>Title / Pages</th>
                             <th>Subtitle</th>
                             <th>Views</th>
                             <th class="text-center">Photo</th>

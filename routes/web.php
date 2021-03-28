@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ArticlesController;
+
 use App\Http\Controllers\Front\PagesController;
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,20 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('categories/edit/{id}', [CategoryController::class, 'editCategory'])->name('admin.categories.edit');
     Route::put('categories/edit/{id}', [CategoryController::class, 'updateCategory'])->name('admin.categories.update');
     Route::delete('categories/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('admin.categories.delete');
+
+
+
+    // <==== routele pentru pagini ====
+    Route::get('pages', [ArticlesController::class, 'showPages'])->name('admin.pages');
+    Route::get('pages/new', [ArticlesController::class, 'newPage'])->name('admin.pages.new');
+    Route::post('pages/new', [ArticlesController::class, 'addPage'])->name('admin.pages.add');
+
+    Route::get('pages/edit/{id}', [ArticlesController::class, 'editPage'])->name('admin.pages.edit');
+    Route::put('pages/edit/{id}', [ArticlesController::class, 'updatePage'])->name('admin.pages.update');
+    Route::delete('pages/delete/{id}', [ArticlesController::class, 'deletePage'])->name('admin.pages.delete');
+
+    Route::get('pages/categories/{id}', [ArticlesController::class, 'showCategories'])->name('admin.pages.showCategories');
+    Route::put('pages/categories/{id}', [ArticlesController::class, 'setCategories'])->name('admin.pages.setCategories');
 });
 
 // <==== routele de administrare ====
@@ -68,7 +84,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 // ====>rutele publice ===
 Route::get('/', [PagesController::class, 'homePage'])->name('home');
 Route::get('/category/{category:slug}', [PagesController::class, 'categoryPage'])->name('category');
-
+Route::get('/articles', [PagesController::class, 'showArticles'])->name('articles');
+Route::get('/article/{page:slug}', [PagesController::class, 'showSingleArticle'])->name('article');
 
 
 require __DIR__ . '/auth.php';

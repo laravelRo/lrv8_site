@@ -1,6 +1,6 @@
 .page-heading {
     padding: 15px;
-    background-color: rgba(236, 236, 245, 0.288);
+    background-color: rgba(185, 202, 140, 0.29);
 }
 
 img {
@@ -15,4 +15,111 @@ img {
 
 .page-heading h1 {
     text-align: center;
+}
+
+.photo-article img {
+    padding: 5px;
+    border: 1px grey solid;
+    display: block;
+    margin: 5px auto;
+}
+
+.article .card-title {
+    text-align: center;
+    font-size: 1.8em;
+    letter-spacing: 1.5px;
+    line-height: 2.2em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.meta {
+
+    background-color: rgb(180, 170, 72);
+    font-size: 1.1em;
+    letter-spacing: 1.1px;
+    padding: 4px 15px;
+    margin: 4px auto;
+}
+
+.article .article-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.article .excerpt {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.8em;
+    font-size: 1.1em;
+
+    padding: 8px 5px;
+    border-left: 2px solid grey;
+}
+
+.list-title {
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px 10px;
+    border-bottom: 2px solid grey;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.article-head {
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+
+    background-color: rgb(235, 222, 179);
+
+}
+
+.article-head h1 {
+    text-align: center;
+    font-size: 2em;
+    line-height: 2.6em;
+    color: black;
+}
+
+.article-head h2 {
+    text-align: center;
+    font-size: 1.6em;
+    line-height: 2em;
+    color: rgb(80, 78, 78);
+}
+
+.article-head .presentation {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+    color: rgb(80, 78, 78);
+    line-height: 1.3em;
+    padding: 10px;
+}
+
+.article-content {
+    margin-top: 50px;
+    color: rgb(80, 78, 78);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.article-content p {
+    font-family: Verdana,
+        Geneva,
+        Tahoma,
+        sans-serif;
+    font-size: 1em;
+    line-height: 1.6em;
+}
+
+.article-content blockquote {
+    margin-left: 20%;
+    border-left: 1px grey solid;
+    padding-left: 30px;
+    font-style: italic;
+    margin-right: 10%;
 }

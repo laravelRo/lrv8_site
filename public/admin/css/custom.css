@@ -48,3 +48,27 @@
     max-width: 50px;
     display: block;
 }
+
+.table .thead-dark a {
+    color: rgb(255, 196, 0);
+}
+
+.article-form h4 {
+    padding: 4px;
+    background-color: rgb(191, 240, 241);
+}
+
+.card.form-setting {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.card.form-setting .card-title {
+
+    font-size: 1.2em;
+    letter-spacing: 1.5px;
+    text-align: center;
+    padding: 8px;
+    background-color: rgb(209, 224, 243);
+
+}

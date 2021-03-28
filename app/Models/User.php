@@ -47,4 +47,18 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pages()
+    {
+        return $this->hasMany(Page::class, 'user_id');
+    }
+
+    public function public_pages()
+    {
+        return $this->hasMany(Page::class, 'user_id')
+            ->where('published_at', '<>', NULL)
+            ->orderByDesc('published_at')
+            ->paginate(10)
+            ->withQueryString();
+    }
 }

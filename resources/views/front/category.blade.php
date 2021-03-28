@@ -28,5 +28,8 @@
         </div>
     </div>
 
+    @include('front.partials.articles-list',['pages'=>$category->public_pages(),'title'=>'Articole in
+    categorie'])
+
 
 @endsection
