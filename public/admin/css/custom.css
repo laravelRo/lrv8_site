@@ -72,3 +72,14 @@
     background-color: rgb(209, 224, 243);
 
 }
+
+img {
+    max-width: 98%;
+}
+
+img.photo {
+    display: block;
+    margin: 7px auto;
+    padding: 6px;
+    border: 1px solid grey;
+}

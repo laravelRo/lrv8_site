@@ -75,6 +75,7 @@ class PagesController extends Controller
 
     public function showSingleArticle(Page $page)
     {
+        // $page = Page::where('slug', $slug)->first();
         if (isset($page)) {
             $page->views++;
             $page->save();

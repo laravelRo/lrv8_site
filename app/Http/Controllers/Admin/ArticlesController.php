@@ -269,6 +269,11 @@ class ArticlesController extends Controller
             File::delete('images/pages/' . $page->photo);
         }
 
+        // stergem toate imaginiledin galeria photo de pe hdd
+        if ($page->photos()->count() > 0) {
+            File::deleteDirectory('images/pages-photo/' . $page->id);
+        }
+
         $page->categories()->detach();
         $page->delete();
 

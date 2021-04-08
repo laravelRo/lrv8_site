@@ -36,4 +36,16 @@ class Page extends Model
             ->orderBy('title')
             ->get();
     }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class, 'page_id')->orderBy('position')->paginate(8);
+    }
+    public function public_photos()
+    {
+        return $this->hasMany(Photo::class, 'page_id')
+            ->where('publish', 1)
+            ->orderBy('position')
+            ->paginate(16);
+    }
 }

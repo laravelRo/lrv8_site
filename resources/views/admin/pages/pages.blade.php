@@ -101,33 +101,42 @@
                                 </td>
 
                                 <td>
-                                    <a href="{{ route('admin.pages.showCategories', $page->id) }}"
-                                        class="btn btn-info btn-circle btn-sm" title="Seteaza categoriile"><i
-                                            class="fas fa-2x fa-list"></i>
-                                    </a>
-                                    <a href="{{ route('admin.pages.edit', $page->id) }}"
-                                        class="btn btn-success btn-circle btn-sm" title="Editeaza datele articolului"><i
-                                            class="fas fa-2x fa-edit"></i>
-                                    </a>
-                                    @can('author-rights')
+                                    <div>
+                                        <a href="{{ route('admin.pages.showCategories', $page->id) }}"
+                                            class="btn btn-info btn-circle btn-sm" title="Seteaza categoriile"><i
+                                                class="fas fa-2x fa-list"></i>
+                                        </a>
+
+                                        <a href="{{ route('admin.pages.galery', $page->id) }}"
+                                            class="btn btn-primary btn-circle btn-sm" title="Seteaza galeria photo"><i
+                                                class="fas fa-2x fa-camera"></i>
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <a href="{{ route('admin.pages.edit', $page->id) }}"
+                                            class="btn btn-success btn-circle btn-sm" title="Editeaza datele articolului"><i
+                                                class="fas fa-2x fa-edit"></i>
+                                        </a>
+                                        @can('author-rights')
 
 
-                                        <form id="form-delete-{{ $page->id }}"
-                                            action="{{ route('admin.pages.delete', $page->id) }}" method="POST"
-                                            style="display:inline-block;">
-                                            @csrf
-                                            @method('delete')
+                                            <form id="form-delete-{{ $page->id }}"
+                                                action="{{ route('admin.pages.delete', $page->id) }}" method="POST"
+                                                style="display:inline-block;">
+                                                @csrf
+                                                @method('delete')
 
-                                        </form>
+                                            </form>
 
-                                        <button class="btn btn-danger btn-circle btn-sm"
-                                            title="Sterge articolul din baza de date"
-                                            onclick=" if(confirm('Confirmati stergerea articolului {{ $page->title }}?'))
-                                                                                        {document.getElementById('form-delete-{{ $page->id }}').submit(); }
-                                                                                                                                                        ">
-                                            <i class="fas fa-2x fa-trash-alt"></i>
-                                        </button>
-                                    @endcan
+                                            <button class="btn btn-danger btn-circle btn-sm"
+                                                title="Sterge articolul din baza de date"
+                                                onclick=" if(confirm('Confirmati stergerea articolului {{ $page->title }}?'))
+                                                 {document.getElementById('form-delete-{{ $page->id }}').submit(); } ">
+                                                <i class="fas fa-2x fa-trash-alt"></i>
+                                            </button>
+                                        @endcan
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ArticlesController;
 
 use App\Http\Controllers\Front\PagesController;
+use App\Http\Controllers\Admin\PhotoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +65,13 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('pages/categories/{id}', [ArticlesController::class, 'showCategories'])->name('admin.pages.showCategories');
     Route::put('pages/categories/{id}', [ArticlesController::class, 'setCategories'])->name('admin.pages.setCategories');
+
+    // ==== rutele pentru galeria foto a paginilor
+    Route::get('page-photos/{id}', [PhotoController::class, 'showForm'])->name('admin.pages.galery');
+    Route::post('page-photos/{id}', [PhotoController::class, 'uploadPhotos'])->name('admin.pages.upload.photos');
+    Route::put('page-photo/{id}', [PhotoController::class, 'savePhoto'])->name('admin.pages.save.photo');
+    Route::delete('page-photos/{id}', [PhotoController::class, 'deleteAllPhotos'])->name('admin.pages.delete-all.photos');
+    Route::delete('page-singlePhoto/{id}', [PhotoController::class, 'deletePhoto'])->name('admin.pages.delete.photo');
 });
 
 // <==== routele de administrare ====

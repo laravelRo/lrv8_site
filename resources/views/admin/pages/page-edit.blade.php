@@ -9,7 +9,8 @@
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control panel</a></li>
         <li class="breadcrumb-item "><a href="{{ route('admin.pages') }}">Articole</a></li>
-        <li class="breadcrumb-item active">Editare articol - {{ $page->title }}</li>
+        <li class="breadcrumb-item active">Editare articol ({{ $page->id }})- {{ $page->title }}</li>
+        <li class="breadcrumb-item "><a href="{{ route('admin.pages.galery', $page->id) }}">Galerie foto</a></li>
     </ol>
 
     <div class="card p-4">

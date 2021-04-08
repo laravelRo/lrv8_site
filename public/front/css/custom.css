@@ -123,3 +123,10 @@ img {
     font-style: italic;
     margin-right: 10%;
 }
+
+img.photo {
+    display: block;
+    margin: 7px auto;
+    padding: 6px;
+    border: 1px solid grey;
+}

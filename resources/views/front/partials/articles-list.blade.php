@@ -17,7 +17,7 @@
                  <a href="{{ route('article', $page->slug) }}">
                      <div class="photo-article">
                          <span class="badge badge-secondary float-left " style="width: max-content;">
-                             {{ request('page') ? $loop->iteration + $pages->perPage() * (request('page') - 1) : $loop->iteration }}
+                             {{ $pages->currentPage() > 1 ? $loop->iteration + $pages->perPage() * ($pages->currentPage() - 1) : $loop->iteration }}
                          </span>
 
                          <img src="/images/pages/{{ $page->photo }}" alt="" title="{{ $page->meta_description }}">
