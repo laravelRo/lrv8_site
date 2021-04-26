@@ -15,8 +15,8 @@
 
             </ul>
         </li>
-        <li><a href="{{ route('articles',['all_articles'=>'all_articles']) }}">Articole</a></li>
-        <li><a href="shortcodes.html">Shortcodes</a></li>
+        <li><a href="{{ route('articles', ['all_articles' => 'all_articles']) }}">Articole</a></li>
+        <li><a href="{{ route('category.info') }}">Site info</a></li>
         <li>
             <span class="opener">Dropdown Two</span>
             <ul>

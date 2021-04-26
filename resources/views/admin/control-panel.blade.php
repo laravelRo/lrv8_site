@@ -4,4 +4,7 @@
 
 @section('title', 'Control Panel main Page')
 
+
+
+
 @endsection

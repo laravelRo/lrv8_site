@@ -2,11 +2,16 @@
      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
          <div class="sb-sidenav-menu">
              <div class="nav">
-                 <div class="sb-sidenav-menu-heading">Administrator</div>
                  @if (auth()->user()->role == 'admin')
+                     <div class="sb-sidenav-menu-heading">Administrator</div>
+
                      <a class="nav-link" href="{{ route('users') }}">
                          <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                          Users
+                     </a>
+                     <a class="nav-link" href="{{ route('admin.messages') }}">
+                         <div class="sb-nav-link-icon"><i class="fas fa-envelope-open-text"></i></div>
+                         Messages
                      </a>
                  @endif
                  <div class="sb-sidenav-menu-heading">Content</div>
@@ -25,6 +30,9 @@
                      data-parent="#sidenavAccordion">
                      <nav class="sb-sidenav-menu-nested nav">
                          <a class="nav-link" href="{{ route('admin.pages') }}">All pages</a>
+                         <a class="nav-link"
+                             href="{{ route('admin.pages', ['categs' => config('custominfo.info-cat')]) }}">Info
+                             Pages</a>
                          <a class="nav-link" href="{{ route('admin.pages', ['published' => 1]) }}">Published</a>
                          <a class="nav-link" href="{{ route('admin.pages', ['published' => 2]) }}">Drafts</a>
                      </nav>

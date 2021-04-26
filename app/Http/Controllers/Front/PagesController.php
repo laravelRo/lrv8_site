@@ -84,4 +84,17 @@ class PagesController extends Controller
             return view("front.home")->with('error', 'Pagina cautata nu exista!');
         }
     }
+
+    // === afisez categoria site info
+    public function categoryInfo()
+    {
+        $category = Category::findOrFail(config('custominfo.info-cat'));
+
+        return view('front.category-info')->with('category', $category);
+    }
+
+    public function pageInfo(Page $page)
+    {
+        return view('front.article-info')->with('page', $page);
+    }
 }

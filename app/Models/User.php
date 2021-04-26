@@ -61,4 +61,8 @@ class User extends Authenticatable implements MustVerifyEmail
             ->paginate(10)
             ->withQueryString();
     }
+    public function isAdmin()
+    {
+        return ($this->role == 'admin');
+    }
 }

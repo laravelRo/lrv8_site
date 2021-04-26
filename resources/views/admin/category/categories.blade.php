@@ -42,7 +42,8 @@
                                 <td>{{ $category->position }}</td>
 
                                 <td>
-                                    {{ $category->title }}<br>
+                                    {{ $category->title }} <small
+                                        class="text-danger">(id-{{ $category->id }})</small><br>
                                     <a href="{{ route('admin.pages', ['categs' => $category->id]) }}">pages -
                                         {{ $category->pages()->count() }}</a>
                                 </td>
@@ -73,10 +74,10 @@
                                         <button class="btn btn-danger btn-circle btn-md"
                                             title="Sterge categoria din baza de date"
                                             onclick="
-                                                                                    if(confirm('Confirmati stergerea categoriei {{ $category->title }}?')){
-                                                                                    document.getElementById('form-delete-{{ $category->id }}').submit();
-                                                                                                                                                                 }
-                                                                                                                                                        ">
+                                                                                            if(confirm('Confirmati stergerea categoriei {{ $category->title }}?')){
+                                                                                            document.getElementById('form-delete-{{ $category->id }}').submit();
+                                                                                                                                                                         }
+                                                                                                                                                                ">
                                             <i class="fas fa-2x fa-trash-alt"></i>
                                         </button>
                                     @endcan

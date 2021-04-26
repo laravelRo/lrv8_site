@@ -195,6 +195,8 @@ class ArticlesController extends Controller
 
         $page->title = $request->title;
         $page->slug = Str::slug($request->slug);
+
+
         $page->subtitle = $request->subtitle;
 
         $page->excerpt = $request->excerpt;
@@ -211,10 +213,10 @@ class ArticlesController extends Controller
         }
 
         // ==== setarea autorului articolului de catre admin
-
         if (auth()->user()->role == 'admin') {
             $page->user_id = $request->user_id;
         }
+
 
 
         if ($request->hasFile('photo')) {

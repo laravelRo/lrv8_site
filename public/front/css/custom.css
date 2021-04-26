@@ -130,3 +130,17 @@ img.photo {
     padding: 6px;
     border: 1px solid grey;
 }
+
+.info-pages h2 {
+    font-size: 1.6em;
+    color: grey;
+    letter-spacing: 1.5px;
+    line-height: 2.4em;
+}
+
+.info-pages h3 {
+    font-size: 1.2em;
+    color: rgb(67, 63, 71);
+    letter-spacing: 1px;
+    line-height: 2em;
+}

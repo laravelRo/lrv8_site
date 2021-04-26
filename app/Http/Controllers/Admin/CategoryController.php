@@ -145,4 +145,9 @@ class CategoryController extends Controller
         $category->delete();
         return redirect(route('admin.categories'))->with('success', 'Categoria ' . $category->title . ' a fost stearsa definitiv din baza de date');
     }
+
+    public function showInfoPages()
+    {
+        $category = Category::findOrFail(config('custominfo.info-cat'));
+    }
 }

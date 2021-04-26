@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ArticlesController;
 
 use App\Http\Controllers\Front\PagesController;
 use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,13 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/user-edit/{id}', [UsersController::class, 'showEditForm'])->name('users.editForm');
     Route::put('/user-edit/{id}', [UsersController::class, 'updateUser'])->name('users.update');
     Route::delete('/user-delete/{id}', [UsersController::class, 'deleteUser'])->name('users.delete');
+
+    Route::get('/messages', [MessageController::class, 'showMessages'])->name('admin.messages');
+    Route::delete('/messages/{id}', [MessageController::class, 'deleteMessage'])->name('admin.message.delete');
+
+
+    // ====>Rutele pentru paginile info
+
 });
 
 // ===> routele pentru categorii
@@ -92,6 +100,15 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 // ====>rutele publice ===
 Route::get('/', [PagesController::class, 'homePage'])->name('home');
 Route::get('/category/{category:slug}', [PagesController::class, 'categoryPage'])->name('category');
+
+// ==== ruta pentru paginile categoriei site-info
+Route::get('/site-info', [PagesController::class, 'categoryInfo'])->name('category.info');
+Route::get('/pages-info/{page:slug}', [PagesController::class, 'pageInfo'])->name('page.info');
+
+Route::post('site-info', [MessageController::class, 'newMessage'])->name('new-message');
+
+// <==== ruta pentru paginile categoriei site-info
+
 Route::get('/articles', [PagesController::class, 'showArticles'])->name('articles');
 Route::get('/article/{page:slug}', [PagesController::class, 'showSingleArticle'])->name('article');
 

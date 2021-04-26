@@ -5,6 +5,8 @@
 @section('content')
     <h1 class="my-4">
         Editare Articol <span class="text-info">{{ $page->title }}</span>
+
+
     </h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Control panel</a></li>
