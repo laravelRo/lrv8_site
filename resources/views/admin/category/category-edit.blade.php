@@ -175,7 +175,9 @@
 
     <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('excerpt');
+        CKEDITOR.replace('excerpt', {
+            allowedContent: true
+        });
 
     </script>
 

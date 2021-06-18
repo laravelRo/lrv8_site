@@ -222,9 +222,15 @@
 
     <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('excerpt');
-        CKEDITOR.replace('presentation');
-        CKEDITOR.replace('content');
+        CKEDITOR.replace('excerpt', {
+            allowedContent: true
+        });
+        CKEDITOR.replace('presentation', {
+            allowedContent: true
+        });
+        CKEDITOR.replace('content', {
+            allowedContent: true
+        });
 
     </script>
 
