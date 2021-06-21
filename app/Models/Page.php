@@ -48,4 +48,14 @@ class Page extends Model
             ->orderBy('position')
             ->paginate(16);
     }
+
+    public function maxPosition()
+    {
+        if ($this->photos()->max('position') > 0) {
+
+            return $this->photos()->max('position');
+        } else {
+            return 0;
+        }
+    }
 }
