@@ -147,6 +147,21 @@
                                 value="{{ old('published_at') ? old('published_at') : date('Y-m-d') }}">
                             @error('published_at') <span class="text-danger small">{{ $message }}</span>@enderror
                         </div>
+                        <div class="form-group col-md-12">
+                            <label for="read_more">Read more text</label>
+                            <input name="read_more" type="text"
+                                class="form-control @error('read_more') is-invalid @enderror " id="read_more"
+                                placeholder="Read more text" value="{{ old('read_more') ? old('read_more') : '' }}">
+                            @error('read_more') <span class="text-danger small">{{ $message }}</span>@enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="read_more">Read more text</label>
+                            <input name="read_more" type="text"
+                                class="form-control @error('read_more') is-invalid @enderror " id="read_more"
+                                placeholder="Read more text" value="{{ old('read_more') ? old('read_more') : '' }}">
+                            @error('read_more') <span class="text-danger small">{{ $message }}</span>@enderror
+                        </div>
 
                         <div class="form-group col-md-6">
                             <label for="views">Vizualizari</label>
@@ -179,7 +194,6 @@
 
 
         });
-
     </script>
 
 
@@ -202,7 +216,6 @@
                 });
             }
         }
-
     </script>
     <script type="text/javascript">
         //crearea automata a slugului
@@ -217,7 +230,6 @@
 
             slugInput.val(theSlug);
         });
-
     </script>
 
     <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
@@ -231,7 +243,6 @@
         CKEDITOR.replace('content', {
             allowedContent: true
         });
-
     </script>
 
 @endsection

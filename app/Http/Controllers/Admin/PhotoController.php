@@ -27,9 +27,9 @@ class PhotoController extends Controller
 
 
         if ($request->hasFile('photo')) {
-            // $page = Page::findOrFail($id);
+            $page = Page::findOrFail($id);
 
-            $itr = 10;
+            $itr = $page->maxPosition() + 10;
 
             foreach ($request->photo as $image) {
                 $photo = new Photo;
@@ -95,7 +95,8 @@ class PhotoController extends Controller
         $page = Page::findOrFail($id);
 
         if ($page->photos()->count() > 0) {
-            foreach ($page->photos() as $photo) {
+            $photos = Photo::where('page_id', $page->id)->get();
+            foreach ($photos as $photo) {
                 $photo->delete();
             }
             File::deleteDirectory('images/pages-photo/' . $page->id);

@@ -139,7 +139,7 @@
 
 
 
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-3">
 
                             <div class="form-check mt-3 text-info">
                                 <input class="form-check-input" type="checkbox" value="1" id="publish" name="publish"
@@ -153,7 +153,7 @@
                         <div class="form-group col-md-1">
                         </div>
 
-                        <div class="form-group col-md-12">
+                        <div class="form-group col-md-8">
                             <label for="published_at">Data publicarii<br>
                                 <span class="text-info">
                                     {{ isset($page->published_at) ? $page->published_at->format('d - M - Y') : 'Nepublicat' }}
@@ -164,6 +164,14 @@
                                 placeholder="Data publicarii articolului"
                                 value="{{ $page->published_at ? $page->published_at->format('Y-m-d') : date('Y-m-d') }}">
                             @error('published_at') <span class="text-danger small">{{ $message }}</span>@enderror
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="read_more">Read more text</label>
+                            <input name="read_more" type="text"
+                                class="form-control @error('read_more') is-invalid @enderror " id="read_more"
+                                placeholder="Read more text"
+                                value="{{ old('read_more') ? old('read_more') : $page->read_more }}">
+                            @error('read_more') <span class="text-danger small">{{ $message }}</span>@enderror
                         </div>
 
                         <div class="form-group col-md-6">
@@ -198,7 +206,6 @@
 
 
         });
-
     </script>
 
 
@@ -221,7 +228,6 @@
                 });
             }
         }
-
     </script>
     <script type="text/javascript">
         //crearea automata a slugului
@@ -236,7 +242,6 @@
 
             slugInput.val(theSlug);
         });
-
     </script>
 
     <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
@@ -250,7 +255,6 @@
         CKEDITOR.replace('content', {
             allowedContent: true
         });
-
     </script>
 
 @endsection

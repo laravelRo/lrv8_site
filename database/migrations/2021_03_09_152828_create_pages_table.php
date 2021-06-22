@@ -26,6 +26,7 @@ class CreatePagesTable extends Migration
             $table->text('content')->nullable();
 
             $table->integer('views')->default(0);
+            $table->string('read_more', 100)->default('Vizualizare...');
 
             $table->timestamp('published_at')->nullable();
             $table->bigInteger('user_id');

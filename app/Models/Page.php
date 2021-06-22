@@ -51,9 +51,10 @@ class Page extends Model
 
     public function maxPosition()
     {
-        if ($this->photos()->max('position') > 0) {
+        $max_position = Photo::select('position')->where('page_id', $this->id)->max('position');
+        if ($max_position > 0) {
 
-            return $this->photos()->max('position');
+            return $max_position;
         } else {
             return 0;
         }

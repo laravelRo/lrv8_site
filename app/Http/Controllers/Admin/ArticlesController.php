@@ -129,6 +129,7 @@ class ArticlesController extends Controller
         $page->content = $request->content;
 
         $page->views = $request->views;
+        $page->read_more = $request->read_more;
 
         if ($request->publish == 1) {
             $page->published_at = $request->published_at;
@@ -202,6 +203,7 @@ class ArticlesController extends Controller
         $page->content = $request->content;
 
         $page->views = $request->views;
+        $page->read_more = $request->read_more;
 
         if ($request->publish == 1) {
 
